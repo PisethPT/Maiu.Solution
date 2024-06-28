@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EcommerceApp.Client.Views.Desktop.AddProductPage"
+             xmlns:viewmodel="clr-namespace:EcommerceApp.Client.ViewModels"
+             xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
+             x:DataType="viewmodel:AddProductViewModel"
+             Title="{Binding Title}">
+    <VerticalStackLayout Spacing="12">
+        <inputLayout:SfTextInputLayout>
+            <Entry Placeholder="Input Product Id"/>
+        </inputLayout:SfTextInputLayout>
+    </VerticalStackLayout>
+</ContentPage>

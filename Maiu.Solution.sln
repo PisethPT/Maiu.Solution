@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.WebApi", "Ecommer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ecommerce.Library", "Ecommerce.Library\Ecommerce.Library.csproj", "{AB5E8D8D-F550-467A-ACF4-5C8F3C0051BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceApp.Client", "EcommerceApp.Client\EcommerceApp.Client.csproj", "{8641BD0F-53BE-431A-9C8C-8007A2511739}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,12 @@ Global
 		{AB5E8D8D-F550-467A-ACF4-5C8F3C0051BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB5E8D8D-F550-467A-ACF4-5C8F3C0051BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB5E8D8D-F550-467A-ACF4-5C8F3C0051BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8641BD0F-53BE-431A-9C8C-8007A2511739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8641BD0F-53BE-431A-9C8C-8007A2511739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8641BD0F-53BE-431A-9C8C-8007A2511739}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{8641BD0F-53BE-431A-9C8C-8007A2511739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8641BD0F-53BE-431A-9C8C-8007A2511739}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8641BD0F-53BE-431A-9C8C-8007A2511739}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
