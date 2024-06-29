@@ -6,9 +6,51 @@
              xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
              x:DataType="viewmodel:AddProductViewModel"
              Title="{Binding Title}">
+    
     <VerticalStackLayout Spacing="12">
-        <inputLayout:SfTextInputLayout>
-            <Entry Placeholder="Input Product Id"/>
+        
+        <inputLayout:SfTextInputLayout Hint="Product Name"
+                                       ContainerType="Outlined"
+                                       OutlineCornerRadius="8">
+            <Entry TextColor="{StaticResource PrimaryDarkText}"/>
         </inputLayout:SfTextInputLayout>
+        
+        <inputLayout:SfTextInputLayout Hint="Product Description"
+                                       HelperText="Enter the product descriptions"
+                                       ContainerType="Outlined"
+                                       OutlineCornerRadius="8">
+            <Editor AutoSize="TextChanges"
+                    TextColor="{StaticResource PrimaryDarkText}"/>
+        </inputLayout:SfTextInputLayout>
+
+        <inputLayout:SfTextInputLayout Hint="Category Id"
+                                       ContainerType="Outlined"
+                                       OutlineCornerRadius="8">
+            <Entry TextColor="{StaticResource PrimaryDarkText}"/>
+        </inputLayout:SfTextInputLayout>
+        
+        <inputLayout:SfTextInputLayout Hint="Price"
+                                       ContainerType="Outlined"
+                                       OutlineCornerRadius="8">
+            <Entry TextColor="{StaticResource PrimaryDarkText}"/>
+        </inputLayout:SfTextInputLayout>
+
+        <inputLayout:SfTextInputLayout Hint="Quantity"
+                                       ContainerType="Outlined"
+                                       OutlineCornerRadius="8">
+            <Entry TextColor="{StaticResource PrimaryDarkText}"/>
+        </inputLayout:SfTextInputLayout>
+
+        <!--<Entry Text="{Binding AddProduct.Name}"
+              Placeholder="Product Name"/>
+        <Entry Text="{Binding AddProduct.Description}"
+               Placeholder="Product Description"/>
+        <Entry Text="{Binding AddProduct.CategoryId}"
+               Placeholder="Category Id"/>
+        <Entry Text="{Binding AddProduct.Price}"
+               Placeholder="Price"/>
+        <Entry Text="{Binding AddProduct.Quantity}"
+               Placeholder="Quantity"/>-->
     </VerticalStackLayout>
+    
 </ContentPage>

@@ -1,4 +1,5 @@
-﻿using EcommerceApp.Client.ViewModels;
+﻿using EcommerceApp.Client.Services;
+using EcommerceApp.Client.ViewModels;
 using EcommerceApp.Client.Views.Desktop;
 using Microsoft.Extensions.Logging;
 using Syncfusion.Maui.Core.Hosting;
@@ -23,6 +24,8 @@ namespace EcommerceApp.Client
             builder.Services.AddSingleton<DesktopHomePage>();
             builder.Services.AddSingleton<AddProductViewModel>();
             builder.Services.AddSingleton<AddProductPage>();
+
+           builder.Services.AddHttpClient<IProductService, ProductService>();
 
 #if DEBUG
     		builder.Logging.AddDebug();

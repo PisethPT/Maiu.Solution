@@ -8,9 +8,10 @@ namespace Ecommerce.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController(IProductService productService) : ControllerBase
+    public class ProductsController(IProductService productService, ICategoryService categoryService) : ControllerBase
     {
         private readonly IProductService productService = productService;
+        private readonly ICategoryService categoryService = categoryService;
 
         [HttpGet] // view 
         // public async Task<ActionResult<List<Product>>> GetProductsAsync() => await productService.GetProductsAsync();
@@ -60,5 +61,10 @@ namespace Ecommerce.WebApi.Controllers
                 return Ok(result.Message);
             return BadRequest(result.Message);
         }
+
+
+
+        [HttpGet("categories")]
+        public async Task<ActionResult<List<Category>>> GetAllCategoriesAsync() => Ok(await categoryService.GetAllCategoriesAsync());
     }
 }
