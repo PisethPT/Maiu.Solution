@@ -4,13 +4,14 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:desktopHomePage="clr-namespace:EcommerceApp.Client.Views.Desktop"
-    xmlns:local="clr-namespace:EcommerceApp.Client"
+    xmlns:phoneHomePage="clr-namespace:EcommerceApp.Client.Views.Phone"
     Shell.FlyoutBehavior="Flyout"
+    Shell.TabBarBackgroundColor="{StaticResource OffBlack}"
     Title="EcommerceApp.Client">
 
     <ShellContent
         Title="Home"
-        ContentTemplate="{OnIdiom Desktop={DataTemplate desktopHomePage:DesktopHomePage}, Phone={DataTemplate local:MainPage}}"
+        ContentTemplate="{OnIdiom Desktop={DataTemplate desktopHomePage:DesktopHomePage}, Phone={DataTemplate phoneHomePage:PhoneHomePage}}"
         Route="MainPage" />
 <!--ContentTemplate="{DataTemplate desktopHomePage:DesktopHomePage}"-->
     <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
@@ -18,4 +19,5 @@
                       Icon="dotnet_bot.png"
                       ContentTemplate="{DataTemplate desktopHomePage:AddProductPage}"/>
     </FlyoutItem>
+    <!--ContentTemplate="{OnIdiom Desktop={DataTemplate desktopHomePage:DesktopHomePage}, Phone={DataTemplate phoneHomePage:PhoneHomePage}}"-->
 </Shell>

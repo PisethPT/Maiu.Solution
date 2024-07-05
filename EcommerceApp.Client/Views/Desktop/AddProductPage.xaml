@@ -3,54 +3,80 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EcommerceApp.Client.Views.Desktop.AddProductPage"
              xmlns:viewmodel="clr-namespace:EcommerceApp.Client.ViewModels"
-             xmlns:inputLayout="clr-namespace:Syncfusion.Maui.Core;assembly=Syncfusion.Maui.Core"
-             x:DataType="viewmodel:AddProductViewModel"
-             Title="{Binding Title}">
-    
-    <VerticalStackLayout Spacing="12">
-        
-        <inputLayout:SfTextInputLayout Hint="Product Name"
-                                       ContainerType="Outlined"
-                                       OutlineCornerRadius="8">
-            <Entry TextColor="{StaticResource PrimaryDarkText}"/>
-        </inputLayout:SfTextInputLayout>
-        
-        <inputLayout:SfTextInputLayout Hint="Product Description"
-                                       HelperText="Enter the product descriptions"
-                                       ContainerType="Outlined"
-                                       OutlineCornerRadius="8">
-            <Editor AutoSize="TextChanges"
-                    TextColor="{StaticResource PrimaryDarkText}"/>
-        </inputLayout:SfTextInputLayout>
+             x:DataType="{x:Type viewmodel:AddProductViewModel}"
+             BackgroundColor="{StaticResource OffBlack}"
+             Shell.BackgroundColor="{StaticResource OffBlack}"
+             Title="Add Product Page">
+    <ContentPage.Resources>
+        <Style TargetType="Entry" x:Key="EntryEdit">
+            <Setter Property="Background" Value="{StaticResource SecondaryBrush}"/>
+            <Setter Property="TextColor" Value="{StaticResource Primary}"/>
+        </Style>
+        <Style TargetType="Picker" x:Key="PickerEdit">
+            <Setter Property="Background" Value="{StaticResource SecondaryBrush}"/>
+            <Setter Property="TextColor" Value="{StaticResource Primary}"/>
+        </Style>
 
-        <inputLayout:SfTextInputLayout Hint="Category Id"
-                                       ContainerType="Outlined"
-                                       OutlineCornerRadius="8">
-            <Entry TextColor="{StaticResource PrimaryDarkText}"/>
-        </inputLayout:SfTextInputLayout>
+        <Style TargetType="Editor" x:Key="EditorEdit">
+            <Setter Property="Background" Value="{StaticResource SecondaryBrush}"/>
+            <Setter Property="TextColor" Value="{StaticResource Primary}"/>
+        </Style>
+    </ContentPage.Resources>
+
+    <VerticalStackLayout Spacing="12" Margin="20,10,20,20">
+        <Label Text="Add Product"
+               FontSize="Title"
+               HorizontalTextAlignment="Center"
+               FontAttributes="Bold"
+               TextColor="{StaticResource Secondary}"/>
         
-        <inputLayout:SfTextInputLayout Hint="Price"
-                                       ContainerType="Outlined"
-                                       OutlineCornerRadius="8">
-            <Entry TextColor="{StaticResource PrimaryDarkText}"/>
-        </inputLayout:SfTextInputLayout>
+        <Entry Placeholder="Product Name"
+               ClearButtonVisibility="WhileEditing"
+               Style="{StaticResource EntryEdit}"
+               Text="{Binding AddProduct.Name}"/>
+        
+        <Editor Placeholder="Product Description"
+                AutoSize="TextChanges"
+                Text="{Binding AddProduct.Description}"
+                Style="{StaticResource EditorEdit}"/>
+        
+        <Picker SelectedIndex="0"
+                ItemsSource="{Binding Categories}"
+                ItemDisplayBinding="{Binding Name}"
+                Style="{StaticResource PickerEdit}"
+                SelectedItem="{Binding SelectedCategory}"/>
+        
+        <Entry Placeholder="Product Price"
+               ClearButtonVisibility="WhileEditing"
+               Text="{Binding AddProduct.Price}"
+               Style="{StaticResource EntryEdit}"/> 
+        
+        <Entry Placeholder="Product Quantity"
+               ClearButtonVisibility="WhileEditing"
+               Text="{Binding AddProduct.Quantity}"
+               Style="{StaticResource EntryEdit}"/>
 
-        <inputLayout:SfTextInputLayout Hint="Quantity"
-                                       ContainerType="Outlined"
-                                       OutlineCornerRadius="8">
-            <Entry TextColor="{StaticResource PrimaryDarkText}"/>
-        </inputLayout:SfTextInputLayout>
-
-        <!--<Entry Text="{Binding AddProduct.Name}"
-              Placeholder="Product Name"/>
-        <Entry Text="{Binding AddProduct.Description}"
-               Placeholder="Product Description"/>
-        <Entry Text="{Binding AddProduct.CategoryId}"
-               Placeholder="Category Id"/>
-        <Entry Text="{Binding AddProduct.Price}"
-               Placeholder="Price"/>
-        <Entry Text="{Binding AddProduct.Quantity}"
-               Placeholder="Quantity"/>-->
+        <HorizontalStackLayout>
+            <Button Text="Add Image"
+                    BackgroundColor="Transparent"
+                    BorderColor="{StaticResource Secondary}"
+                    BorderWidth="1.5"
+                    TextColor="{StaticResource SecondaryDarkText}"
+                    Command="{Binding AddImageCommand}"
+                    HeightRequest="25"/>
+            
+            <Image Source="{Binding ImageSource}"
+                   WidthRequest="125"
+                   HeightRequest="125"/>
+            
+        </HorizontalStackLayout>
+        
+        <Button Text="Save"
+                WidthRequest="150"
+                HorizontalOptions="Start"
+                BackgroundColor="{StaticResource Secondary}"
+                TextColor="{StaticResource Primary}"
+                Command="{Binding SaveProductCommand}"/>
+        
     </VerticalStackLayout>
-    
 </ContentPage>

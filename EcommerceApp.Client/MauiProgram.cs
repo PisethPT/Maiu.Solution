@@ -1,8 +1,9 @@
-﻿using EcommerceApp.Client.Services;
+﻿using CommunityToolkit.Maui;
+using EcommerceApp.Client.Services;
 using EcommerceApp.Client.ViewModels;
 using EcommerceApp.Client.Views.Desktop;
+using EcommerceApp.Client.Views.Phone;
 using Microsoft.Extensions.Logging;
-using Syncfusion.Maui.Core.Hosting;
 
 namespace EcommerceApp.Client
 {
@@ -13,7 +14,7 @@ namespace EcommerceApp.Client
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
-                .ConfigureSyncfusionCore()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -22,10 +23,14 @@ namespace EcommerceApp.Client
 
             builder.Services.AddSingleton<DesktopHomePageViewModel>();
             builder.Services.AddSingleton<DesktopHomePage>();
+
             builder.Services.AddSingleton<AddProductViewModel>();
             builder.Services.AddSingleton<AddProductPage>();
 
-           builder.Services.AddHttpClient<IProductService, ProductService>();
+            builder.Services.AddSingleton<PhoneHomePageViewModel>();
+            builder.Services.AddSingleton<PhoneHomePage>();
+
+            builder.Services.AddHttpClient<IProductService, ProductService>();
 
 #if DEBUG
     		builder.Logging.AddDebug();
